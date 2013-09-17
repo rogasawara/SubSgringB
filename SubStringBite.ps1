@@ -24,10 +24,10 @@ function SubStringByte{
         } finally {
         }
         $count =  [System.Text.Encoding]::GetEncoding("Shift_Jis").GetByteCount($tmp)
-        if ($byte　-lt　$count){
+        if ($byte -lt $count){
             # 指定バイト数がオーバーしている場合
             return $str.SubString(0,$i - 1)
-        }elseif ($byte　-eq　$count){
+        }elseif ($byte -eq $count){
             # 指定バイト数と一致している場合
             return $str.SubString(0,$i)
         }else{
@@ -36,8 +36,5 @@ function SubStringByte{
         }
     }
 }
-
-
-
 
 
