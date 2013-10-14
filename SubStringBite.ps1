@@ -1,8 +1,7 @@
-
-<# å¼•æ•°ã®æ–‡å­—ã‹ã‚‰ãƒã‚¤ãƒˆæ•°åˆ†ã ã‘æ–‡å­—æ•°åˆ‡ã‚Šå‡ºã—
---ã±ã‚‰ã‚ãƒ¼ãŸ--
-strã€€å¯¾è±¡æ–‡å­—åˆ— 
-byte ãƒã‚¤ãƒˆæ•°
+<# ˆø”‚Ì•¶Žš‚©‚çƒoƒCƒg”•ª‚¾‚¯•¶Žš”Ø‚èo‚µ
+--‚Ï‚ç‚ß[‚½--
+str@‘ÎÛ•¶Žš—ñ 
+byte ƒoƒCƒg”
 --------------#>
 function SubStringByte{
     Param(
@@ -10,31 +9,29 @@ function SubStringByte{
         [int]$byte = 0
     )
 
-    # ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
+    # ƒJƒEƒ“ƒ^[
     $i = 1
 
-    while ( 1 -eq 1 )  {
-        # åˆ‡ã‚Šå‡ºã—ãŸæ–‡å­—æ•°ãŒæŒ‡å®šãƒã‚¤ãƒˆæ•°ã‚’è¶…ãˆã‚‹ã¾ã§ç¶šã‘ã‚‹
+    while ( $TRUE )  {
+        # Ø‚èo‚µ‚½•¶Žš”‚ªŽw’èƒoƒCƒg”‚ð’´‚¦‚é‚Ü‚Å‘±‚¯‚é
         try {
             $tmp = $str.SubString(0,$i)
-        } catch  [Exception] { # TODO exeptionã‚’çµžã‚‹
-            # æŒ‡å®šãƒã‚¤ãƒˆæ•°ãŒæ–‡å­—åˆ—ã‚’ã‚ªãƒ¼ãƒãƒ¼ã—ã¦ã„ã‚‹å ´åˆ
-            echo "å¼•æ•°ã‚¨ãƒ©ãƒ¼ï¼ˆæŒ‡å®šã®ãƒã‚¤ãƒˆæ•°ãŒæ–‡å­—åˆ—ã‚’è¶…ãˆã¦ã„ã¾ã™ï¼‰"
+        } catch  [Exception] { # TODO exeption‚ði‚é
+            # Žw’èƒoƒCƒg”‚ª•¶Žš—ñ‚ðƒI[ƒo[‚µ‚Ä‚¢‚éê‡
+            echo "ˆø”ƒGƒ‰[iŽw’è‚ÌƒoƒCƒg”‚ª•¶Žš—ñ‚ð’´‚¦‚Ä‚¢‚Ü‚·j"
             return ""
         } finally {
         }
         $count =  [System.Text.Encoding]::GetEncoding("Shift_Jis").GetByteCount($tmp)
         if ($byte -lt $count){
-            # æŒ‡å®šãƒã‚¤ãƒˆæ•°ãŒã‚ªãƒ¼ãƒãƒ¼ã—ã¦ã„ã‚‹å ´åˆ
+            # Žw’èƒoƒCƒg”‚ªƒI[ƒo[‚µ‚Ä‚¢‚éê‡
             return $str.SubString(0,$i - 1)
         }elseif ($byte -eq $count){
-            # æŒ‡å®šãƒã‚¤ãƒˆæ•°ã¨ä¸€è‡´ã—ã¦ã„ã‚‹å ´åˆ
+            # Žw’èƒoƒCƒg”‚Æˆê’v‚µ‚Ä‚¢‚éê‡
             return $str.SubString(0,$i)
         }else{
-            # æŒ‡å®šãƒã‚¤ãƒˆæ•°ã‚ˆã‚Šå°‘ãªã„å ´åˆ
+            # Žw’èƒoƒCƒg”‚æ‚è­‚È‚¢ê‡
             $i =  $i + 1
         }
     }
 }
-
-
